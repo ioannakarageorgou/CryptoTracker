@@ -26,14 +26,15 @@ struct CircleButtonView: View {
     }
 }
 
-#Preview {
-    Group {
-        CircleButtonView(iconName: "info")
-            .previewLayout(.sizeThatFits)
+struct CircleButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CircleButtonView(iconName: "info")
+                .previewLayout(.sizeThatFits)
 
-        CircleButtonView(iconName: "plus")
-            .previewLayout(.sizeThatFits)
-            .colorScheme(.dark)
+            CircleButtonView(iconName: "plus")
+                .previewLayout(.sizeThatFits)
+                .colorScheme(.dark)
+        }
     }
-
 }
