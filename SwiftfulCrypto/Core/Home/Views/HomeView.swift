@@ -19,6 +19,8 @@ struct HomeView: View {
             VStack {
                 homeHeader
 
+                HomeStatsView(showPortfolio: $showPortfolio)
+
                 SearchBarView(searchText: $vm.searchText)
 
                 columnTitles
@@ -101,6 +103,7 @@ extension HomeView {
             if showPortfolio {
                 Text("Holdings")
             }
+            // use UIScreen.main.bounds since we only have portrait mode
             Text("Price")
                 .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
