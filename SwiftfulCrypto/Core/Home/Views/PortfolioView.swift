@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct PortfolioView: View {
-    
+
     @EnvironmentObject private var vm: HomeViewModel
     @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     SearchBarView(searchText: $vm.searchText)
                     coinLogoList
-                    
+
                     if selectedCoin != nil {
                         portfolioInputSection
                     }
@@ -33,6 +33,11 @@ struct PortfolioView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     trailingNavBarButtons
+                }
+            })
+            .onChange(of: vm.searchText, perform: { value in
+                if value == "" {
+                    removeSelectedCoin()
                 }
             })
         }
@@ -74,14 +79,14 @@ private extension PortfolioView {
             .padding(.leading)
         }
     }
-    
+
     func getCurrentValue() -> Double {
         if let quantity = Double(quantityText) {
             return quantity * (selectedCoin?.currentPrice ?? 0)
         }
         return 0
     }
-    
+
     var portfolioInputSection: some View {
         VStack(spacing: 20) {
             HStack {
@@ -108,7 +113,7 @@ private extension PortfolioView {
         .padding()
         .font(.headline)
     }
-    
+
     var trailingNavBarButtons: some View {
         HStack(spacing: 10) {
             Image(systemName: "checkmark")
@@ -124,7 +129,7 @@ private extension PortfolioView {
         }
         .font(.headline)
     }
-    
+
     func saveButtonPressed() {
         guard let coin = selectedCoin else { return }
         // save to portfolio
@@ -138,7 +143,7 @@ private extension PortfolioView {
             showCheckmark = false
         }
     }
-    
+
     func removeSelectedCoin() {
         selectedCoin = nil
         vm.searchText = ""
