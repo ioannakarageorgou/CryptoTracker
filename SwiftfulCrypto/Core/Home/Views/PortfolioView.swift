@@ -55,13 +55,16 @@ private extension PortfolioView {
     var coinLogoList: some View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: 10) {
-                ForEach(vm.allCoins) { coin in
+                ForEach(
+                    vm.searchText.isEmpty ? vm.portfolioCoins :
+                        vm.allCoins
+                ) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) {
-                                selectedCoin = coin
+                                updateSelectedCoin(coin: coin)
                             }
                         }
                         .background(
@@ -77,6 +80,17 @@ private extension PortfolioView {
             }
             .frame(height: 120)
             .padding(.leading)
+        }
+    }
+
+    func updateSelectedCoin(coin: CoinModel) {
+        selectedCoin = coin
+
+        if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings {
+            quantityText = "\(amount)"
+        } else {
+            quantityText = ""
         }
     }
 
@@ -131,14 +145,18 @@ private extension PortfolioView {
     }
 
     func saveButtonPressed() {
-        guard let coin = selectedCoin else { return }
-        // save to portfolio
+        guard
+            let coin = selectedCoin,
+            let amount = Double(quantityText)
+        else { return }
+
+        vm.updatePortfolio(coin: coin, amount: amount)
+
         withAnimation(.easeIn) {
             showCheckmark = true
             removeSelectedCoin()
         }
-        // hide keyboard
-        UIApplication.shared.endEditing()
+        UIApplication.shared.endEditing() // hide keyboard
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             showCheckmark = false
         }
