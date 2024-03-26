@@ -22,6 +22,10 @@ struct CoinRowView: View {
             rightColumn
         }
         .font(.subheadline)
+        // before couldn't tap on the space in the center of the row
+        .background(
+            Color.theme.background.opacity(0.001)
+        )
     }
 }
 
