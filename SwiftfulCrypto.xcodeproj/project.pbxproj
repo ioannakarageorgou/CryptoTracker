@@ -16,6 +16,8 @@
 		013E68FD2BB3FC4F0025F962 /* CoinDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E68FC2BB3FC4F0025F962 /* CoinDetailModel.swift */; };
 		013E68FF2BB3FE010025F962 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E68FE2BB3FE010025F962 /* DetailViewModel.swift */; };
 		013E69012BB3FE240025F962 /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E69002BB3FE240025F962 /* CoinDetailDataService.swift */; };
+		013E69032BB43C3D0025F962 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E69022BB43C3D0025F962 /* ChartView.swift */; };
+		013E69052BB475380025F962 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E69042BB475380025F962 /* Date.swift */; };
 		0159A8EB2B9734F400431390 /* SwiftfulCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159A8EA2B9734F400431390 /* SwiftfulCryptoApp.swift */; };
 		0159A8ED2B9734F400431390 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159A8EC2B9734F400431390 /* ContentView.swift */; };
 		0159A8EF2B9734F600431390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0159A8EE2B9734F600431390 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		013E68FC2BB3FC4F0025F962 /* CoinDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailModel.swift; sourceTree = "<group>"; };
 		013E68FE2BB3FE010025F962 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		013E69002BB3FE240025F962 /* CoinDetailDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataService.swift; sourceTree = "<group>"; };
+		013E69022BB43C3D0025F962 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		013E69042BB475380025F962 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		0159A8E72B9734F400431390 /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0159A8EA2B9734F400431390 /* SwiftfulCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoApp.swift; sourceTree = "<group>"; };
 		0159A8EC2B9734F400431390 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				013E68FA2BB316A80025F962 /* DetailView.swift */,
+				013E69022BB43C3D0025F962 /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				01380F4C2B9B581400B3C96F /* PreviewProvider.swift */,
 				0118688B2B9B5D1F001E5742 /* Double.swift */,
 				01F3CED62BADE017001BAAA4 /* UIApplication.swift */,
+				013E69042BB475380025F962 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				01F3CEC62BAC80E9001BAAA4 /* CoinImageView.swift in Sources */,
 				013E68FB2BB316A80025F962 /* DetailView.swift in Sources */,
 				013E68FF2BB3FE010025F962 /* DetailViewModel.swift in Sources */,
+				013E69052BB475380025F962 /* Date.swift in Sources */,
 				0159A8EB2B9734F400431390 /* SwiftfulCryptoApp.swift in Sources */,
 				01F3CED72BADE017001BAAA4 /* UIApplication.swift in Sources */,
 				01FE9F4A2B9764DB005EE8D4 /* CircleButtonView.swift in Sources */,
@@ -393,6 +400,7 @@
 				016DC53C2B98B5A50007C540 /* CircleButtonAnimationView.swift in Sources */,
 				01F3CECA2BAC89B7001BAAA4 /* CoinImageVIewModel.swift in Sources */,
 				01380F4D2B9B581400B3C96F /* PreviewProvider.swift in Sources */,
+				013E69032BB43C3D0025F962 /* ChartView.swift in Sources */,
 				01F3CEE42BB07B0D001BAAA4 /* PortfolioView.swift in Sources */,
 				0118688C2B9B5D1F001E5742 /* Double.swift in Sources */,
 				013E69012BB3FE240025F962 /* CoinDetailDataService.swift in Sources */,

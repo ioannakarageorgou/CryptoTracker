@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DetailLoadingView: View {
-    
+
     @Binding var coin: CoinModel?
-    
+
     var body: some View {
         ZStack {
             if let coin = coin {
@@ -21,35 +21,42 @@ struct DetailLoadingView: View {
 }
 
 struct DetailView: View {
-    
+
     @StateObject var vm: DetailViewModel
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     private let spacing: CGFloat = 30
-    
+
     init(coin: CoinModel) {
         _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
     }
-    
+
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                Text("")
-                    .frame(height: 150)
-                
-                overviewTitle
-                Divider()
-                overviewGrid
-                
-                additionalTitle
-                Divider()
-                additionalGrid
+            VStack {
+                ChartView(coin: vm.coin)
+                    .padding(.vertical)
+
+                VStack(spacing: 20) {
+                    overviewTitle
+                    Divider()
+                    overviewGrid
+
+                    additionalTitle
+                    Divider()
+                    additionalGrid
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle(vm.coin.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                navigationBarTrailingItems
+            }
+        }
     }
 }
 
@@ -69,7 +76,7 @@ private extension DetailView {
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     var additionalTitle: some View {
         Text("Additional Details")
             .font(.title)
@@ -77,7 +84,7 @@ private extension DetailView {
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     var overviewGrid: some View {
         LazyVGrid(
             columns: columns,
@@ -90,7 +97,7 @@ private extension DetailView {
                 }
             })
     }
-    
+
     var additionalGrid: some View {
         LazyVGrid(
             columns: columns,
@@ -102,5 +109,15 @@ private extension DetailView {
                     StatisticView(stat: stat)
                 }
             })
+    }
+
+    var navigationBarTrailingItems: some View {
+        HStack {
+            Text(vm.coin.symbol.uppercased())
+                .font(.headline)
+                .foregroundColor(Color.theme.secondaryText)
+            CoinImageView(coin: vm.coin)
+                .frame(width: 25, height: 25)
+        }
     }
 }
