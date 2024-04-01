@@ -26,6 +26,8 @@
 		016DC53C2B98B5A50007C540 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DC53B2B98B5A50007C540 /* CircleButtonAnimationView.swift */; };
 		01EEA4842BBAB70800057040 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EEA4832BBAB70800057040 /* String.swift */; };
 		01EEA4882BBAC6B200057040 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EEA4872BBAC6B200057040 /* SettingsView.swift */; };
+		01EEA48D2BBAD69300057040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EEA48C2BBAD69300057040 /* LaunchScreen.storyboard */; };
+		01EEA48F2BBAD83600057040 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EEA48E2BBAD83600057040 /* LaunchView.swift */; };
 		01F389292BB1832A00440B68 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F389272BB1832A00440B68 /* PortfolioContainer.xcdatamodeld */; };
 		01F3892B2BB1847A00440B68 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3892A2BB1847A00440B68 /* PortfolioDataService.swift */; };
 		01F3CEC32BAC7A7B001BAAA4 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CEC22BAC7A7B001BAAA4 /* NetworkingManager.swift */; };
@@ -69,6 +71,9 @@
 		016DC53B2B98B5A50007C540 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 		01EEA4832BBAB70800057040 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		01EEA4872BBAC6B200057040 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		01EEA4892BBAD65300057040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01EEA48C2BBAD69300057040 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01EEA48E2BBAD83600057040 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		01F389282BB1832A00440B68 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
 		01F3892A2BB1847A00440B68 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		01F3CEC22BAC7A7B001BAAA4 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 				01FE9F412B97611E005EE8D4 /* Core */,
 				0159A8EA2B9734F400431390 /* SwiftfulCryptoApp.swift */,
 				0159A8EC2B9734F400431390 /* ContentView.swift */,
+				01EEA4892BBAD65300057040 /* Info.plist */,
 				0159A8EE2B9734F600431390 /* Assets.xcassets */,
 				0159A8F02B9734F600431390 /* Preview Content */,
 			);
@@ -205,6 +211,23 @@
 			isa = PBXGroup;
 			children = (
 				01EEA4872BBAC6B200057040 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01EEA48A2BBAD67800057040 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				01EEA48B2BBAD68100057040 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		01EEA48B2BBAD68100057040 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01EEA48C2BBAD69300057040 /* LaunchScreen.storyboard */,
+				01EEA48E2BBAD83600057040 /* LaunchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				01FE9F472B9764BA005EE8D4 /* Components */,
+				01EEA48A2BBAD67800057040 /* Launch */,
 				01FE9F422B97612E005EE8D4 /* Home */,
 				013E68F72BB316740025F962 /* Detail */,
 				01EEA4852BBAC65D00057040 /* Settings */,
@@ -382,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EEA48D2BBAD69300057040 /* LaunchScreen.storyboard in Resources */,
 				0159A8F22B9734F600431390 /* Preview Assets.xcassets in Resources */,
 				0159A8EF2B9734F600431390 /* Assets.xcassets in Resources */,
 			);
@@ -401,6 +426,7 @@
 				01380F4B2B9B574000B3C96F /* CoinRowView.swift in Sources */,
 				01F3CEE72BB07E19001BAAA4 /* XMarkButton.swift in Sources */,
 				01EEA4882BBAC6B200057040 /* SettingsView.swift in Sources */,
+				01EEA48F2BBAD83600057040 /* LaunchView.swift in Sources */,
 				0118688E2B9B6506001E5742 /* HomeViewModel.swift in Sources */,
 				0159A8ED2B9734F400431390 /* ContentView.swift in Sources */,
 				013E68FD2BB3FC4F0025F962 /* CoinDetailModel.swift in Sources */,
@@ -567,10 +593,11 @@
 				DEVELOPMENT_TEAM = 8LMQ22K3W8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftfulCrypto/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,10 +628,11 @@
 				DEVELOPMENT_TEAM = 8LMQ22K3W8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftfulCrypto/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
