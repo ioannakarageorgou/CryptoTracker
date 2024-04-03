@@ -54,6 +54,10 @@ struct DetailView: View {
                 .padding()
             }
         }
+        .background(
+            Color.theme.background
+                .ignoresSafeArea()
+        )
         .navigationTitle(vm.coin.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -140,7 +144,7 @@ private extension DetailView {
                 }
             })
     }
-    
+
     var navigationBarTrailingItems: some View {
         HStack {
             Text(vm.coin.symbol.uppercased())

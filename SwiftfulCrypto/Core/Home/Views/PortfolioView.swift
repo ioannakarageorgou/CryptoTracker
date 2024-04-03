@@ -26,6 +26,10 @@ struct PortfolioView: View {
                     }
                 }
             }
+            .background(
+                Color.theme.background
+                    .ignoresSafeArea()
+            )
             .navigationTitle("Edit portfolio")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -123,7 +127,7 @@ private extension PortfolioView {
                 Text(getCurrentValue().asCurrencyWith2Decimals())
             }
         }
-        .animation(.none)
+        .withoutAnimation()
         .padding()
         .font(.headline)
     }

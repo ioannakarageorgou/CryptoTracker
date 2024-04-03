@@ -38,8 +38,14 @@ struct HomeView: View {
                         .transition(.move(edge: .leading))
                 }
                 if showPortfolio {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinsList
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
 
                 Spacer(minLength: 0)
@@ -68,11 +74,11 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-extension HomeView {
-    private var homeHeader: some View {
+private extension HomeView {
+    var homeHeader: some View {
         HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
-                .animation(.none)
+                .withoutAnimation()
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
@@ -88,7 +94,7 @@ extension HomeView {
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundColor(Color.theme.accent)
-                .animation(.none)
+                .withoutAnimation()
             Spacer()
             CircleButtonView(iconName: "chevron.right")
                 .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
@@ -101,7 +107,7 @@ extension HomeView {
         .padding(.horizontal)
     }
 
-    private var allCoinsList: some View {
+    var allCoinsList: some View {
         List {
             ForEach(vm.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: false)
@@ -109,12 +115,13 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(.plain)
     }
 
-    private var portfolioCoinsList: some View {
+    var portfolioCoinsList: some View {
         List {
             ForEach(vm.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
@@ -122,9 +129,19 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(.plain)
+    }
+
+    var portfolioEmptyText: some View {
+        Text("You haven't added any coins to your portfolio yet!")
+            .font(.callout)
+            .foregroundColor(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
 
     func segue(coin: CoinModel) {
@@ -132,7 +149,7 @@ extension HomeView {
         showDetailView.toggle()
     }
 
-    private var columnTitles: some View {
+    var columnTitles: some View {
         HStack {
             HStack(spacing: 4) {
                 Text("Coin")
