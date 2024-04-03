@@ -14,7 +14,7 @@ struct SettingsView: View {
     let personalURL = URL(string: "https://github.com/ioannakarageorgou")!
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.theme.background
                     .ignoresSafeArea()

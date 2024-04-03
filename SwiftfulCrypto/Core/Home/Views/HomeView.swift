@@ -54,19 +54,22 @@ struct HomeView: View {
                 SettingsView()
             })
         }
-        .background(
-            NavigationLink(
-                destination: DetailLoadingView(coin: $selectedCoin),
-                isActive: $showDetailView,
-                label: { EmptyView() }
-            )
-        )
+        .navigationDestination(isPresented: $showDetailView) {
+            DetailLoadingView(coin: $selectedCoin)
+        }
+//        .background(
+//            NavigationLink(
+//                destination: DetailLoadingView(coin: $selectedCoin),
+//                isActive: $showDetailView,
+//                label: { EmptyView() }
+//            )
+//        )
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             HomeView()
                 .navigationBarHidden(true)
         }
