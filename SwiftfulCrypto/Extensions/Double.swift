@@ -16,6 +16,7 @@ extension Double {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
+        formatter.locale = Locale.init(identifier: "en_US")
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         return formatter
@@ -36,7 +37,7 @@ extension Double {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = .currency
-        //        formatter.locale = .current
+        formatter.locale = Locale.init(identifier: "en_US")
         //        formatter.currencyCode = "usd"
         //        formatter.currencyCode = "$"
         formatter.minimumFractionDigits = 2
